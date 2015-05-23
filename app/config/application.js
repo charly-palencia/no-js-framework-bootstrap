@@ -1,5 +1,6 @@
 var RoutesSuscriber = require('../lib/routes_suscriber').RoutesSuscriber;
-App.routes = new RoutesSuscriber();
+App.routes = Object.create(RoutesSuscriber).init();
+
 App.dataEnpoint = "http://localhost:3000/api/v1";
 require('../lib/handlers');
 

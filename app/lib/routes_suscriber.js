@@ -1,17 +1,18 @@
-class RoutesSuscriber {
-  constructor(){
+var RoutesSuscriber = {
+  init: function(){
     this.routes = [];
-  }
+  },
 
-  suscribe(routeCallback){
+  suscribe: function(routeCallback){
     this.routes.push(routeCallback);
-  }
+  },
 
-  publish(match){
+  publish: function(context){
     for (var index= 0; index < this.routes.length; index++) {
       this.routes[index].call(this, match);
     }
   }
-}
+};
 
 exports.RoutesSuscriber = RoutesSuscriber
+
